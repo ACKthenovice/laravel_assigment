@@ -29,7 +29,20 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validate the input
+        $request->validate([
+            'name'=>'required',
+            'description'=>'required',
+        ]);
+
+        //Create the new Product in the datavase
+        Product::create($request->all());
+
+        //Redirect the user to user friendly message
+        return redirect()->route('products.index')->with('success','Product created successfully');
+
+
+        
     }
 
     /**
