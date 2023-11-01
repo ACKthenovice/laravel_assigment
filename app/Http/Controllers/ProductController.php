@@ -31,8 +31,8 @@ class ProductController extends Controller
     {
         //validate the input
         $request->validate([
-            'name'=>'required',
-            'description'=>'required'
+            'name' => 'required',
+            'description' => 'required',
         ]);
 
         //Create the new Product in the datavase
