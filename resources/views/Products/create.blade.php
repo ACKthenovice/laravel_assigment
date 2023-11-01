@@ -4,15 +4,14 @@
 
 <h1>Create Product</h1>
 
-@if($errors->any())
-  <div class="alert alert-dander">
-      <strong>There were some problems with your input</strong>
-      <ul>
-          @foreach ($errors->all() as $message )
-              <li>{{ $message }}</li>
-          @endforeach
-      </ul>
-  </div>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
 @endif
 
 <form action="{{ route('products.store') }}" method="POST">
@@ -26,7 +25,7 @@
             <div class="mt-2">
               <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                 
-                <input type="text" name="productname" id="productname" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="">
+                <input type="text" name="productname" id="productname" class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="nike">
               </div>
             </div>
           </div>

@@ -13,6 +13,9 @@ class ProductController extends Controller
     public function index()
     {
         //
+        $products=Product::latest()->paginate(5);
+        
+        return view('Products.index', compact('Products'))->with(request()->input('page'));
     }
 
     /**
@@ -32,7 +35,7 @@ class ProductController extends Controller
         //validate the input
         $request->validate([
             'name' => 'required',
-            'description' => 'required',
+            'description' => 'required'
         ]);
 
         //Create the new Product in the datavase
