@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Peripheral;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class PeripheralController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,11 +13,12 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products=Product::get();
+        $peripherals=Peripheral::get();
         //dd($products);
-        return view('products',[
-            'products'=>$products
+        return view('peripherals',[
+            'peripherals'=>$peripherals
         ]);
+
     }
 
     /**
@@ -26,7 +27,6 @@ class ProductController extends Controller
     public function create()
     {
         //
-        return view('Products.create');
     }
 
     /**
@@ -34,13 +34,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(string $id)
     {
         //
     }
@@ -48,7 +48,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit(string $id)
     {
         //
     }
@@ -56,7 +56,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -64,7 +64,7 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy(string $id)
     {
         //
     }
